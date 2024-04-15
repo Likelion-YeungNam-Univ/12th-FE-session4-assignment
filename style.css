@@ -1,0 +1,150 @@
+@font-face {
+    font-family: 'omyu_pretty';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    font-family: 'omyu_pretty';
+}
+
+body{
+    background: floralwhite;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+/* fieldset 태그 공통 속성 설정 */
+fieldset{
+    background-color: snow;
+    border-radius: 5px;
+    border: 2px solid gray;
+}
+
+/* legend 태그 공통 속성 설정 */
+legend{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    color: #04333A;
+}
+
+/* 왼쪽 */
+.left-box{
+    width: 500px;
+}
+
+/* 점수 박스 */
+.score{
+    text-align: center;
+    font-size: 40px;
+}
+
+/* 기록 박스 */
+.record{
+    min-height: 500px;
+    margin-top: 20px;
+}
+
+/* 전체 삭제 버튼 */
+.all-delete-btn{
+    float: right;
+    background: none;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: gray;
+
+    &:hover{
+        color: #04333A;
+        cursor: pointer;
+    }
+}
+
+/* 오른쪽 */
+.right-box{
+    width: 950px;
+}
+
+/* 가위바위보 박스 */
+.game{
+    height: 635px;
+    padding-bottom: 5px;
+}
+
+/* 오른쪽 구역 정렬 */
+.grid-box{
+    display: grid;
+    grid-template-columns: 450px 450px;
+    grid-template-rows: minmax(500px, auto);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+}
+
+/* 유저 및 컴퓨터 선택 */
+.user-choice, .computer-choice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 120px;
+    color: rgb(114, 67, 67);
+}
+
+/* 가위바위보 선택 버튼 */
+.buttons{
+    border: none; 
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttons button {
+    width: 140px;
+    height: 70px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    font-size: 20px;
+    background-color: white;
+
+    &:hover{
+        cursor: pointer;
+        background-color: rgb(245, 216, 216);
+    }
+}
+
+/* 결과 */
+.result{
+    background-color: white;
+    border: 2px solid gray;
+    height: 45px;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 25px;
+    font-weight: 600;
+    color: #04333A;
+}
+
+/*동적 생성 태그*/
+.custom-li{
+    font-size: large;
+    line-height: 1.8;
+}
+
+.custom-delete-btn{
+    background:none;
+    border: none;
+    float: right;
+    font-size: large;
+    color: gray;
+    line-height: 1.6;
+
+    &:hover{
+        color: black;
+        cursor: pointer;
+    }
+}
