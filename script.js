@@ -6,7 +6,7 @@ const userChoice = document.querySelector('.user-choice');
 const result = document.querySelector('.result');
 const ul = document.querySelector('ul');
 const allDeleteBtn = document.querySelector('.all-delete-btn');
-//..
+//..testest
 //..
 
 
