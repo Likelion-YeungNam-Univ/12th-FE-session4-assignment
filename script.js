@@ -6,8 +6,6 @@ const userChoice = document.querySelector(".user-choice");
 const result = document.querySelector(".result");
 const ul = document.querySelector("ul");
 const allDeleteBtn = document.querySelector(".all-delete-btn");
-//..
-//..
 
 let gameRecord = [];
 let userScore = 0;
@@ -15,8 +13,6 @@ let computerScore = 0;
 
 /*기록 삭제*/
 const deleteResult = (deleteId) => {
-  //...
-  //
   for (let i = 0; i < gameRecord.length; i++) {
     if (gameRecord[i].id === deleteId) {
       res = gameRecord[i].result;
@@ -31,8 +27,6 @@ const deleteResult = (deleteId) => {
 
 /*기록 전체 삭제*/
 const deleteAllResult = () => {
-  //...
-  //
   gameRecord = [];
   userScore = computerScore = 0;
   updateRecord();
@@ -41,8 +35,6 @@ const deleteAllResult = () => {
 
 /*점수 업데이트*/
 const updateScore = () => {
-  //...
-  //
   const userTotalScore = document.querySelector(".user-score");
   const computerTotalScore = document.querySelector(".computer-score");
 
@@ -69,8 +61,6 @@ const updateRecord = () => {
     li.classList.add("custom-li");
     deleteBtn.classList.add("custom-delete-btn");
 
-    //..
-    //
     li.innerText = item.message;
 
     deleteBtn.innerText = "삭제";
@@ -85,8 +75,6 @@ const updateRecord = () => {
 
 /*화면에 선택 사항(가위, 바위, 보) 및 결과 보여주기*/
 const showResult = (user, computer, resultMsg) => {
-  //...
-  //
   userChoice.innerText = user;
   computerChoice.innerText = computer;
   result.innerText = resultMsg;
@@ -141,4 +129,3 @@ rockBtn.addEventListener("click", start);
 scissorsBtn.addEventListener("click", start);
 paperBtn.addEventListener("click", start);
 allDeleteBtn.addEventListener("click", deleteAllResult);
-//..
