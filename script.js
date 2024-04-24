@@ -60,7 +60,14 @@ const updateRecord = () => {
 
 /*화면에 선택 사항(가위, 바위, 보) 및 결과 보여주기*/
 const showResult = (user, computer, resultMsg) => {
-	//...
+
+  const result_user = document.querySelector('.user-choice');  
+  const result_computer = document.querySelector('.computer-choice');  
+  const result = document.querySelector('.result');  // 게임 결과
+
+  result_user.innerText = `${user}`;
+  result_computer.innerText = `${computer}`;
+  result.innerText = `${resultMsg}`;
 
   updateScore();
 }
