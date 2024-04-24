@@ -26,7 +26,12 @@ const deleteAllResult = () => {
 
 /*점수 업데이트*/
 const updateScore = () => {
-	//...
+	const userCount = document.querySelector('.user-score');
+	const computerCount = document.querySelector('.computer-score');
+
+  // 사람과 컴퓨터 점수 표시
+  userCount.innerText=`${userScore}`;
+  computerCount.innerText=`${computerScore}`;
 
   if (userScore === 3 || computerScore === 3) {
     const winnerMessage = (userScore === 3 ? "🎉축하합니다! 이겼습니다🎉" : "컴퓨터가 이겼습니다!");
