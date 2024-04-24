@@ -40,7 +40,18 @@ const deleteResult = (deleteId, e, item) => {
 
 /*기록 전체 삭제*/
 const deleteAllResult = () => {
-	//...
+  // 배열 비우기
+  gameRecord=[];
+
+  // ul태그 비우기
+  ul.innerHTML=''
+
+  // 점수 0:0으로 reset
+  userScore=0;
+  computerScore=0;
+
+  // 변경된 점수 업데이트
+  updateScore();
 }
 
 /*점수 업데이트*/
@@ -145,4 +156,4 @@ const start = (e) => {
 rockBtn.addEventListener('click',start);
 scissorsBtn.addEventListener('click',start);
 paperBtn.addEventListener('click',start);
-//..
+allDeleteBtn.addEventListener('click',deleteAllResult); // 전체삭제 버튼
