@@ -52,7 +52,9 @@ const updateRecord = () => {
     li.classList.add('custom-li'); 
     deleteBtn.classList.add('custom-delete-btn'); 
 
-    //..
+    // 기록 리스트 업데이트
+    li.innerText=item.message;
+
     deleteBtn.innerText = '삭제';
     
     deleteBtn.addEventListener('click', () => deleteResult(item.id));
