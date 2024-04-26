@@ -20,6 +20,29 @@ let computerScore = 0;
 /*기록 삭제*/
 const deleteResult = (deleteId) => {
 	//...
+  //find를 이용하여 gameRecord배열 중에 지우고자 하는 배열 요소를 지정.
+  let score=gameRecord.find(item=>item.id===deleteId);
+  //출력값 확인
+  console.log(score);
+  //찾고자 하는 요소가 존재시
+  if(score)
+  {
+    //배열의 요소의 key값인 메세지 중 value가 '이겼다'을 포함시
+    if(score.message.includes("이겼다!")){
+      //userScore값이 0아래, 즉 음수가 되지 않도록 Max함수 설정 시 0과 비교
+      userScore=Math.max(0,userScore-1);
+    }
+    //배열의 요소의 key값인 메세지 중 value가 '졌다'를 포함시
+    else if(score.message.includes("졌다!")){
+      //computerscore값이 0아래, 즉 음수가 되지 않도록 Max함수 설정 시 0과 비교
+      computerScore=Math.max(0,computerScore-1);
+    }
+  }
+  //배열 재선언.
+  gameRecord=gameRecord.filter(item=>item.id!==deleteId);
+  //화면상으로 바로 적용되도록 업데이트
+  updateRecord();
+  updateScore();
 }
 
 /*기록 전체 삭제*/
@@ -51,6 +74,9 @@ const updateRecord = () => {
     const li = document.createElement('li');
     const deleteBtn = document.createElement('button');
     li.classList.add('custom-li'); 
+
+    //기록보드판에 가위바위보 기록 표시 
+    li.innerText=item.message;
     deleteBtn.classList.add('custom-delete-btn'); 
 
     //..
