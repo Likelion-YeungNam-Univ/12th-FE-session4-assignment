@@ -6,6 +6,9 @@ const userChoice = document.querySelector('.user-choice');
 const result = document.querySelector('.result');
 const ul = document.querySelector('ul');
 const allDeleteBtn = document.querySelector('.all-delete-btn');
+const userScoreBoard=document.querySelector('.user-score');
+const computerScoreBoard=document.querySelector('.computer-score');
+
 //..
 //..
 
@@ -27,7 +30,9 @@ const deleteAllResult = () => {
 /*점수 업데이트*/
 const updateScore = () => {
 	//...
-
+  //보드판 점수기록 업데이트
+  userScoreBoard.innerText=userScore;
+  computerScoreBoard.innerText=computerScore;
   if (userScore === 3 || computerScore === 3) {
     const winnerMessage = (userScore === 3 ? "🎉축하합니다! 이겼습니다🎉" : "컴퓨터가 이겼습니다!");
     setTimeout(() => {
@@ -41,6 +46,7 @@ const updateScore = () => {
 const updateRecord = () => {
   ul.innerHTML='';
 
+  
   gameRecord.map(item => {
     const li = document.createElement('li');
     const deleteBtn = document.createElement('button');
@@ -61,6 +67,10 @@ const updateRecord = () => {
 /*화면에 선택 사항(가위, 바위, 보) 및 결과 보여주기*/
 const showResult = (user, computer, resultMsg) => {
 	//...
+  //유저 컴퓨터 가위바위보 결과 화면에 보여주기
+  userChoice.innerText=user;
+  computerChoice.innerText=computer;
+  result.innerText=resultMsg;
 
   updateScore();
 }
@@ -94,6 +104,7 @@ const play = (user, computer) => {
       message = '졌다!';
       computerScore++;
       break;
+    
   }
 
   const recordMsg = `나: ${user} | 컴퓨터: ${computer} | 결과: ${message}`
