@@ -48,6 +48,11 @@ const deleteResult = (deleteId) => {
 /*기록 전체 삭제*/
 const deleteAllResult = () => {
 	//...
+  gameRecord=[];
+  userScore=0;
+  computerScore=0;
+  updateRecord();
+  updateScore();
 }
 
 /*점수 업데이트*/
@@ -149,4 +154,6 @@ const start = (e) => {
 rockBtn.addEventListener('click',start);
 scissorsBtn.addEventListener('click',start);
 paperBtn.addEventListener('click',start);
+//모두 삭제 버튼 설정
+allDeleteBtn.addEventListener('click', deleteAllResult);
 //..
