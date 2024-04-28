@@ -17,6 +17,17 @@ let computerScore = 0;
 /*기록 삭제*/
 const deleteResult = (deleteId) => {
 	//...
+  const deletedResultIndex = gameRecord.findIndex(item => item.id === deleteId);
+  const deletedResult = gameRecord.splice(deletedResultIndex, 1)[0];
+  
+  if (deletedResult.message.includes('이겼다!')) {
+      userScore--; 
+  } else if (deletedResult.message.includes('졌다!')) {
+      computerScore--; 
+  }
+
+  updateScore();
+  updateRecord();
 }
 
 /*기록 전체 삭제*/
