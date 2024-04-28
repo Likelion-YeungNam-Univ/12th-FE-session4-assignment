@@ -33,12 +33,18 @@ const deleteResult = (deleteId) => {
 /*기록 전체 삭제*/
 const deleteAllResult = () => {
 	//...
+  gameRecord = [];
+  userScore = 0;
+  computerScore = 0;
+  updateScore();  
+  updateRecord();
 }
 
 /*점수 업데이트*/
 const updateScore = () => {
 	//...
-
+  document.querySelector('.user-score').textContent = userScore;
+  document.querySelector('.computer-score').textContent = computerScore;
   if (userScore === 3 || computerScore === 3) {
     const winnerMessage = (userScore === 3 ? "🎉축하합니다! 이겼습니다🎉" : "컴퓨터가 이겼습니다!");
     setTimeout(() => {
@@ -123,4 +129,5 @@ const start = (e) => {
 rockBtn.addEventListener('click',start);
 scissorsBtn.addEventListener('click',start);
 paperBtn.addEventListener('click',start);
+allDeleteBtn.addEventListener('click', deleteAllResult);
 //..
