@@ -17,17 +17,34 @@ let computerScore = 0;
 /*기록 삭제*/
 const deleteResult = (deleteId) => {
 	//...
+  const deletedResultIndex = gameRecord.findIndex(item => item.id === deleteId);
+  const deletedResult = gameRecord.splice(deletedResultIndex, 1)[0];
+  
+  if (deletedResult.message.includes('이겼다!')) {
+      userScore--; 
+  } else if (deletedResult.message.includes('졌다!')) {
+      computerScore--; 
+  }
+
+  updateScore();
+  updateRecord();
 }
 
 /*기록 전체 삭제*/
 const deleteAllResult = () => {
 	//...
+  gameRecord = [];
+  userScore = 0;
+  computerScore = 0;
+  updateScore();  
+  updateRecord();
 }
 
 /*점수 업데이트*/
 const updateScore = () => {
 	//...
-
+  document.querySelector('.user-score').textContent = userScore;
+  document.querySelector('.computer-score').textContent = computerScore;
   if (userScore === 3 || computerScore === 3) {
     const winnerMessage = (userScore === 3 ? "🎉축하합니다! 이겼습니다🎉" : "컴퓨터가 이겼습니다!");
     setTimeout(() => {
@@ -46,12 +63,14 @@ const updateRecord = () => {
     const deleteBtn = document.createElement('button');
     li.classList.add('custom-li'); 
     deleteBtn.classList.add('custom-delete-btn'); 
+    const recordMsg = `나: ${item.user} | 컴퓨터: ${item.computer} | 결과: ${item.message}`; 
 
     //..
     deleteBtn.innerText = '삭제';
     
     deleteBtn.addEventListener('click', () => deleteResult(item.id));
 
+    li.textContent = recordMsg; 
     li.appendChild(deleteBtn);
     ul.appendChild(li);
   });
@@ -61,7 +80,9 @@ const updateRecord = () => {
 /*화면에 선택 사항(가위, 바위, 보) 및 결과 보여주기*/
 const showResult = (user, computer, resultMsg) => {
 	//...
-
+  userChoice.textContent = user;
+  computerChoice.textContent = computer;
+  result.textContent = resultMsg;
   updateScore();
 }
 
@@ -112,4 +133,5 @@ const start = (e) => {
 rockBtn.addEventListener('click',start);
 scissorsBtn.addEventListener('click',start);
 paperBtn.addEventListener('click',start);
+allDeleteBtn.addEventListener('click', deleteAllResult);
 //..
