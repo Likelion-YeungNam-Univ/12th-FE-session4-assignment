@@ -63,12 +63,14 @@ const updateRecord = () => {
     const deleteBtn = document.createElement('button');
     li.classList.add('custom-li'); 
     deleteBtn.classList.add('custom-delete-btn'); 
+    const recordMsg = `나: ${item.user} | 컴퓨터: ${item.computer} | 결과: ${item.message}`; 
 
     //..
     deleteBtn.innerText = '삭제';
     
     deleteBtn.addEventListener('click', () => deleteResult(item.id));
 
+    li.textContent = recordMsg; 
     li.appendChild(deleteBtn);
     ul.appendChild(li);
   });
@@ -78,7 +80,9 @@ const updateRecord = () => {
 /*화면에 선택 사항(가위, 바위, 보) 및 결과 보여주기*/
 const showResult = (user, computer, resultMsg) => {
 	//...
-
+  userChoice.textContent = user;
+  computerChoice.textContent = computer;
+  result.textContent = resultMsg;
   updateScore();
 }
 
