@@ -6,13 +6,13 @@ const userChoice = document.querySelector(".user-choice");
 const result = document.querySelector(".result");
 const ul = document.querySelector("ul");
 const allDeleteBtn = document.querySelector(".all-delete-btn");
+const user_score = document.querySelector(".user-score");
+const computer_score = document.querySelector(".computer-score");
 
 //  전체삭제 버튼 기능 넣기
 allDeleteBtn.addEventListener("click", () => {
   deleteAllResult();
 });
-//..
-//..
 
 let gameRecord = []; // 게임 결과 저장 배열
 let userScore = 0; // 유저 점수
@@ -35,6 +35,7 @@ const deleteResult = (deleteId) => {
     // msg에 '이겼다'가 포함되어 있으면 컴퓨터점수 낮추기
     userScore--;
   }
+  updateScore(); // 점수 ui 바꾸기
   updateRecord(); // 다시 ui에 표현
 };
 
@@ -48,12 +49,15 @@ const deleteAllResult = () => {
   gameRecord = []; // 배열 초기화
   computerScore = 0;
   userScore = 0;
+  updateScore(); // 점수 ui 초기화
   updateRecord();
 };
 
 /*점수 업데이트*/
 const updateScore = () => {
   //...
+  user_score.innerText = userScore;
+  computer_score.innerText = computerScore;
 
   if (userScore === 3 || computerScore === 3) {
     const winnerMessage =
