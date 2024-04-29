@@ -6,6 +6,11 @@ const userChoice = document.querySelector(".user-choice");
 const result = document.querySelector(".result");
 const ul = document.querySelector("ul");
 const allDeleteBtn = document.querySelector(".all-delete-btn");
+
+//  전체삭제 버튼 기능 넣기
+allDeleteBtn.addEventListener("click", () => {
+  deleteAllResult();
+});
 //..
 //..
 
@@ -35,7 +40,15 @@ const deleteResult = (deleteId) => {
 
 /*기록 전체 삭제*/
 const deleteAllResult = () => {
-  //...
+  if (gameRecord.length == 0) {
+    // 기록된 경기가 없으면 오류 발생
+    alert("이미 기록이 없습니다");
+    return;
+  }
+  gameRecord = []; // 배열 초기화
+  computerScore = 0;
+  userScore = 0;
+  updateRecord();
 };
 
 /*점수 업데이트*/
