@@ -133,12 +133,13 @@ legend{
 .custom-li{
     font-size: large;
     line-height: 1.8;
+    float : left;
 }
 
 .custom-delete-btn{
     background:none;
     border: none;
-    float: right;
+    float : right;
     font-size: large;
     color: gray;
     line-height: 1.6;
