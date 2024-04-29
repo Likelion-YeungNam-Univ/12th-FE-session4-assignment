@@ -15,7 +15,22 @@ let computerScore = 0; // 컴퓨터 점수
 
 /*기록 삭제*/
 const deleteResult = (deleteId) => {
-  //...
+  data = null; // 삭제할 msg 저장할 변수
+  gameRecord = gameRecord.filter((item) => {
+    if (item.id == deleteId) {
+      data = item.message; // 삭제할 id와 item.id가 같으면 data에 msg저장
+    }
+    return item.id != deleteId;
+  });
+
+  if (data.includes("졌다")) {
+    // msg에 '졌다'가 포함되어 있으면 컴퓨터점수 낮추기
+    computerScore--;
+  } else if (data.includes("이겼다")) {
+    // msg에 '이겼다'가 포함되어 있으면 컴퓨터점수 낮추기
+    userScore--;
+  }
+  updateRecord(); // 다시 ui에 표현
 };
 
 /*기록 전체 삭제*/
@@ -48,7 +63,7 @@ const updateRecord = () => {
     deleteBtn.classList.add("custom-delete-btn");
 
     //..
-    li.innerHTML = item.message;
+    li.innerHTML = item.message; // 기록에 메인 텍스트 저장
     deleteBtn.innerText = "삭제";
 
     deleteBtn.addEventListener("click", () => deleteResult(item.id));
