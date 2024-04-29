@@ -75,7 +75,6 @@ const updateRecord = () => {
     li.classList.add("custom-li");
     deleteBtn.classList.add("custom-delete-btn");
 
-    //..
     li.innerHTML = item.message; // 기록에 메인 텍스트 저장
     deleteBtn.innerText = "삭제";
 
@@ -90,7 +89,8 @@ const updateRecord = () => {
 /*화면에 선택 사항(가위, 바위, 보) 및 결과 보여주기*/
 const showResult = (user, computer, resultMsg) => {
   //...
-
+  userChoice.innerText = user;
+  computerChoice.innerText = computer;
   updateScore();
 };
 
