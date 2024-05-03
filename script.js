@@ -65,7 +65,8 @@ const updateRecord = () => {
     li.classList.add('custom-li'); 
     deleteBtn.classList.add('custom-delete-btn'); 
 
-    li.innerText = gameRecord[idx++].message;
+    // li.innerText = gameRecord[idx++].message;
+    li.innerText = item.message;
     deleteBtn.innerText = '삭제';
     
     deleteBtn.addEventListener('click', () => deleteResult(item.id));
